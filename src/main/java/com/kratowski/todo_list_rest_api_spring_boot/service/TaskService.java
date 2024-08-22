@@ -2,7 +2,9 @@ package com.kratowski.todo_list_rest_api_spring_boot.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.kratowski.todo_list_rest_api_spring_boot.model.Task;
 import com.kratowski.todo_list_rest_api_spring_boot.repository.TaskRepository;
@@ -25,6 +27,10 @@ public class TaskService {
     }
 
     public Task createTask(Task task) {
+        return taskRepository.save(task);
+    }
+
+    public Task updateTask(Task task) {
         return taskRepository.save(task);
     }
 }
