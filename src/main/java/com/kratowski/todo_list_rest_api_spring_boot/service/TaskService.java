@@ -19,4 +19,8 @@ public class TaskService {
     public Task getSingleTaskById(int taskId) {
         return taskRepository.findById(taskId).orElse(null);
     }
+
+    public void deleteTaskById(int taskId) {
+        taskRepository.deleteById(taskId);
+    }
 }
