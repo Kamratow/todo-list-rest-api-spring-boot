@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kratowski.todo_list_rest_api_spring_boot.model.Task;
 import com.kratowski.todo_list_rest_api_spring_boot.service.TaskService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class TaskController {
@@ -34,4 +36,10 @@ public class TaskController {
 
         return taskToBeRemoved;
     }
+
+    @PostMapping("task")
+    public @ResponseBody Task createTask(@RequestBody Task task) {
+        return taskService.createTask(task);
+    }
+
 }
